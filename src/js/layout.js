@@ -2,12 +2,16 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
+//import { Home } from "./views/home";
+import { EventList } from "./views/EventList";
+import { EventProfile } from "./component/EventProfile";
+import { MeetupList } from "./views/MeetupList";
+import { MeetupProfile } from "./component/MeetupProfile";
+
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
+
 import { Footer } from "./component/footer";
 
 //create your first component
@@ -23,13 +27,17 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/">
-							<Home />
+							<EventList />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
+						<Route exact path="/demo" />
+						<Route exact path="/profile/:id">
+							<EventProfile />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/meetup/">
+							<MeetupList />
+						</Route>
+						<Route exact path="/meetup/:id">
+							<MeetupProfile />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
